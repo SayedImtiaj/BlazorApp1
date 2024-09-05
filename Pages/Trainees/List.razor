@@ -1,0 +1,50 @@
+﻿@page "/trainees"
+@page "/trainees/list"
+<div class="row">
+    <div class="col-lg-9">
+        <h1>Trainees</h1>
+    </div>
+    <div class="col-lg-3 text-right">
+        <a class="btn btn-success btn-sm" href="/trainees/create" role="button">
+            Create
+            New
+        </a>
+    </div>
+</div>
+@if (Trainees != null && Trainees.Count > 0)
+{
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Cellphone No.</th>
+                <th>Contact Address</th>
+                <th>Course</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Trainees)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.EmailAddress</td>
+                    <td>@item.CellphoneNo</td>
+                    <td>@item.ContactAddress</td>
+                    <td>@item.Course?.Name</td>
+                    <td class="text-right">
+                        <a class="btn btn-primary btn-sm"
+                           href="/trainees/detail/@item.Id" role="button">Details</a>
+                        <a class="btn btn-secondary btn-sm"
+                           href="/trainees/edit/@item.Id" role="button">Edit</a>
+                        <button class="btn btn-danger btn-sm" @onclick="@(e =>
+DeleteTrainee(item.Id))" role="button">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

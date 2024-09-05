@@ -1,0 +1,39 @@
+﻿@page "/trainees/detail/{id:int}"
+@if (Trainee != null)
+{
+    <div class="row">
+        <div class="col-lg-9">
+            <h1>@Trainee.Name</h1>
+        </div>
+        <div class="col-lg-3 text-right">
+            <a class="btn btn-secondary btn-sm" href="/trainees" role="button">
+                Go Back
+                To List
+            </a>
+        </div>
+    </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">Name</th>
+                <td>@Trainee.Name</td>
+            </tr>
+            <tr>
+                <th scope="row">Email Address</th>
+                <td>@Trainee.EmailAddress</td>
+            </tr>
+            <tr>
+                <th scope="row">Cellphone No.</th>
+                <td>@Trainee.CellphoneNo</td>
+            </tr>
+            <tr>
+                <th scope="row">Contact Address</th>
+                <td>@Trainee.ContactAddress</td>
+            </tr>
+            <tr>
+                <th scope="row">Course Name</th>
+                <td>@Trainee.Course?.Name</td>
+            </tr>
+        </tbody>
+    </table>
+}

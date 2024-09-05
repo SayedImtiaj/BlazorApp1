@@ -1,0 +1,28 @@
+﻿@page "/courses/detail/{id:int}"
+
+@if (Course != null)
+{
+    <div class="row">
+        <div class="col-lg-9">
+            <h2>Edit</h2>
+        </div>
+        <div class="col-lg-3 text-right">
+            <a href="/courses" role="button" class="btn btn-secondary btn-sm">
+                Back To
+                List
+            </a>
+        </div>
+    </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">Name</th>
+                <td>@Course.Name</td>
+            </tr>
+            <tr>
+                <th scope="row">Course Duration</th>
+                <td>@Course.CourseDuration</td>
+            </tr>
+        </tbody>
+    </table>
+}
